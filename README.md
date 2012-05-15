@@ -1,4 +1,4 @@
 silverstripe-restclient
 =======================
 
-A REST client to for SilverStripe
+A REST client for SilverStripe

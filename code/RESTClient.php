@@ -8,8 +8,8 @@ class RESTClient extends DataObject {
 
 	protected $curl;
 	
-	public function request($subURL = '', $curlOpts = array()) {
-		assert(is_string($subURL));
+	public function request($subURL = array(), $curlOpts = array()) {
+		assert(is_string($subURL) || is_array($subURL));
 		assert(is_array($curlOpts));
 		
 		if(!$this->curl) $this->curlInit();
@@ -21,7 +21,7 @@ class RESTClient extends DataObject {
 				HTTP_URL_JOIN_PATH | HTTP_URL_JOIN_QUERY
 			)
 		);
-		
+				
 		curl_setopt_array($curl, $curlOpts);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		
